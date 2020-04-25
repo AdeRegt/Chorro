@@ -1,0 +1,2 @@
+export const SWITCH_LOGIN = 'SWITCH_LOGIN';
+export const SWITCH_REGISTER = 'SWITCH_REGISTER';

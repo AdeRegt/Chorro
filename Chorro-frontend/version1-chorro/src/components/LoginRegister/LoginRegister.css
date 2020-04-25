@@ -55,6 +55,7 @@ button:focus{
     left: 0;
     position: absolute;
     width: 110px;
+    margin-left: -14.5px;
     height: 100%;
     background: linear-gradient(to right, #ff105f, #ffad06);
     border-radius: 5px;
