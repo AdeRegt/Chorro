@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#
+# Are we up to date?
+git pull
+
+#
+# Are we having the right directories?
+if [[ ! -d "Chorro-backend" ]]
+then
+	echo "Chorro-backend directory does not exists in working directory. Set working directory to chorro project."
+	exit 0
+fi
+if [[ ! -d "Chorro-frontend" ]]
+then
+	echo "Chorro-frontend directory does not exists in working directory. Set working directory to chorro project."
+	exit 0
+fi
+
+#
+# Are we having the right packages installed?
+pip install freenit
+if python -c 'import sys; exit(sys.version_info.major>=3)'; then
+	echo 'Python version should be at least 3.0.0 to run this application.'
+	exit 0
+fi
+
+#
+# Only backend has a first time run.
+echo ""
+echo "Running scripts"
+cd Chorro-backend
+bash bin/init.sh
+cd ..
+
+echo ""
+echo "First build succesfull. Use ./run to start the project."
