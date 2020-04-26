@@ -1,3 +1,5 @@
+
+import data from '../apis/data';
 import {
     SWITCH_LOGIN,
     SWITCH_REGISTER,
