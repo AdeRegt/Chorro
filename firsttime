@@ -19,18 +19,18 @@ fi
 
 #
 # Are we having the right packages installed?
-pip install freenit
 if python -c 'import sys; exit(sys.version_info.major>=3)'; then
 	echo 'Python version should be at least 3.0.0 to run this application.'
 	exit 0
 fi
+pip install --user freenit
 
 #
 # Only backend has a first time run.
 echo ""
 echo "Running scripts"
 cd Chorro-backend
-bash bin/init.sh
+bin/init.sh
 cd ..
 
 echo ""
