@@ -19,11 +19,13 @@ fi
 
 #
 # Are we having the right packages installed?
-if python -c 'import sys; exit(sys.version_info.major>=3)'; then
+if python$PY_VERSION -c 'import sys; exit(sys.version_info.major>=3)'; then
 	echo 'Python version should be at least 3.0.0 to run this application.'
+  echo 'If you have python3 installed, try running this script like this:'
+  echo "PY_VERSION=3 $0"
 	exit 0
 fi
-pip install --user freenit
+pip$PY_VERSION install --user freenit
 
 #
 # Only backend has a first time run.
