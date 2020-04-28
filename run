@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #
 # Are we up to date?
@@ -12,13 +12,18 @@ git pull
 
 # First run backend
 cd Chorro-backend
-gnome-terminal --tab -e "bash bin/devel.sh"
+if command -v gnome-terminal; then
+  gnome-terminal --tab -e "bash bin/devel.sh"
+elif command -v sakura; then
+ sakura -e "bin/devel.sh" &
+else
+  bin/devel.sh &
+fi
 cd ..
 
 cd Chorro-frontend/version1-chorro
 npm start
-cd ..
-cd ..
+cd ../..
 
 #
 # Finished
