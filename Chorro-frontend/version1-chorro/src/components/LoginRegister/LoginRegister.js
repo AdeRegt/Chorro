@@ -5,7 +5,7 @@ import {Field, reduxForm} from 'redux-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
 
-import { logIn,showHideIcon} from '../../actions';
+import { logIn, showCharacter, hideCharacter} from '../../actions';
 
 class LoginRegister extends React.Component {
   
@@ -16,24 +16,52 @@ class LoginRegister extends React.Component {
         this.props.logIn(formValues);
     }
 
-    changeIcon = () => {
-      // console.log(this.props.icon)
-      const lala =  this.props.icon === "visibility" ?  "visibility_off" : "visibility";
-      // console.log(lala);
-      this.props.showHideIcon(lala)
-      this.showIcon("password");
-    }
+    // changeIcon = () => {
+    //   console.log(this.props.icon)
+    //   const lala =  this.props.icon === "visibility" ?  "visibility_off" : "visibility";
+    //   // console.log(lala);
+    //   this.props.showHideIcon(lala)
+    //   // this.showOrHideIcon("password");
+    // }
 
-    showIcon = (arg) => {
-    console.log(this.props.icon);
-      if(arg === "password"){
-        
-        return this.props.icon;
-      } else {
-        return ""
-      }
+    // showOrHideIcon = (label) => {
+    //   if(label === "password") {
+    //     console.log(this.props.icon)
+    //     return this.props.icon
+    //   }
+    // }
+    showChar = () => {
+      console.log('show char funkcija');
+      this.props.showCharacter("text");
     }
-
+    hideChar = () => {
+      console.log('hide char funkcija');
+      this.props.hideCharacter("password");
+    }
+    
+    showOrHideCharacter = (label) => {
+      if(label !== "password"){
+        return null
+      } else   {
+        console.log('if in state is true');
+          return(
+            <div>
+              <i className="material-icons visibility" onClick={this.showChar}>visibility</i>
+              <i className="material-icons visibility" onClick={this.hideChar}>visibility_off</i>
+            </div>
+            )
+      } 
+      // else {
+      //   console.log('if in state is false');
+      //   return <i className="material-icons visibility" onClick={this.showChar}>visibility_off</i>
+      // }
+    
+    }
+    showOrHide = (label)  => {
+      if(label !== "password" ) {
+        return "text";
+      } else return this.props.showHideChar;
+    }
 
     renderTextField = ({
       label,
@@ -48,9 +76,11 @@ class LoginRegister extends React.Component {
       error={touched && invalid}
       helperText={touched && error}
       {...input}
-      type={label}
+      type={this.showOrHide(label)}
       />
-      <i className="material-icons visibility" onClick={this.changeIcon} >{ this.showIcon(label)}</i>
+      {/* <i className="material-icons visibility" onClick={this.changeIcon}>visibility</i>  */}
+      {this.showOrHideCharacter(label)}
+      
         </div>
     )
     
@@ -100,7 +130,7 @@ class LoginRegister extends React.Component {
 
   const mapStateToProps = ({auth}) => {
     return {
-      icon: auth.icon
+      showHideChar: auth.showHideChar
     }
   }
 
@@ -109,7 +139,7 @@ class LoginRegister extends React.Component {
     validate,
   })(LoginRegister)
 
-export default connect(mapStateToProps,{logIn,showHideIcon})(formWrapped);
+export default connect(mapStateToProps,{logIn,showCharacter, hideCharacter})(formWrapped);
 
 
 

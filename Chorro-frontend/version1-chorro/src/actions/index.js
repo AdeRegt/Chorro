@@ -2,7 +2,8 @@
 import dataFile from '../apis/dataFile';
 import {
     LOGIN,
-    SHOW_HIDE,
+    SHOW_CHAR,
+    HIDE_CHAR,
 } from './types';
 
 export const logIn = formValues => async (dispatch,getState) => {
@@ -13,9 +14,17 @@ export const logIn = formValues => async (dispatch,getState) => {
     dispatch({type: LOGIN, payload: response.data})
 }
 
-export const showHideIcon = (showOrHide) => {
+export const showCharacter = (type) => {
     return {
-        type:SHOW_HIDE,
-        payload: showOrHide 
+        type:SHOW_CHAR,
+        payload: type,
+    };
+}
+
+export const hideCharacter = (type) => {
+    return {
+        type:HIDE_CHAR,
+        payload: type,
+
     };
 }

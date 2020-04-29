@@ -1,13 +1,15 @@
-import {SHOW_HIDE} from '../actions/types'
+import {SHOW_CHAR,HIDE_CHAR} from '../actions/types'
 
 const INIT_STATE = {
-    icon: "visibility_off"   
+    showHideChar: "password"   
 }
 
 export default(state = INIT_STATE, action)=> {
     switch(action.type){
-        case SHOW_HIDE:
-         return {...state, icon: action.payload }
+        case SHOW_CHAR:
+         return {...state, showHideChar: action.payload };
+        case HIDE_CHAR:
+         return {...state, showHideChar: action.payload};   
         default: return state
     }
 }
