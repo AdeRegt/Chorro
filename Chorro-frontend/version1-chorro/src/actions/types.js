@@ -1,2 +1,2 @@
-export const SWITCH_LOGIN = 'SWITCH_LOGIN';
-export const SWITCH_REGISTER = 'SWITCH_REGISTER';
+export const SHOW_HIDE = 'SHOW_HIDE';
+export const LOGIN = 'LOGIN';

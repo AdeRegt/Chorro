@@ -1,7 +1,8 @@
- *{
-     margin: 0;
-     padding: 0;
-     font-family: sans-serif;
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
 .hero {
@@ -53,7 +54,7 @@ button:focus{
 
 #btn{
     top: 0;
-    left: 0;
+    left: 15px;
     position: absolute;
     width: 110px;
     margin-left: -14.5px;
@@ -69,7 +70,7 @@ button:focus{
 }
 
 .input-group {
-    top: 180px;
+    top: 100px;
     position: absolute;
     width: 280px;
     transition: .5s;
@@ -88,14 +89,13 @@ button:focus{
 }
 
 .submit-btn{
-    width: 85%;
+    color:white;
+    width: 50%;
     padding: 10px 30px;
     cursor: pointer;
-    display: block;
     margin: auto;
-    background: linear-gradient(to right, #ff105f, #ffad06);
+    background: linear-gradient(to right, #0000FF , #99b2ff);
     border: 0;
-    /* outline: none */
     border-radius: 30px;
 }
 #login{
@@ -103,5 +103,19 @@ button:focus{
 }
 
 #register{
-    left: 450px;
+    left: 50px;
+}
+#button > * {
+    margin:5px;
+}
+
+.icon-password{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+i {
+    margin: 0 5px;
+    color: #868787;
 }

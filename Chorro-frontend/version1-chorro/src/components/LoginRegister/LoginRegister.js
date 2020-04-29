@@ -1,64 +1,115 @@
 import React from 'react';
 import './LoginRegister.css'
 import {connect} from 'react-redux';
-import {switchLogin,switchRegister} from '../../actions';
+import {Field, reduxForm} from 'redux-form';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button'
+
+import { logIn,showHideIcon} from '../../actions';
 
 class LoginRegister extends React.Component {
-    
+  
+  // for sending post request       
+    onSubmit = (formValues) => {
+        console.log("these are form values: ");
+        console.log(formValues)    
+        this.props.logIn(formValues);
+    }
 
-    logIn = () => {
-        this.props.switchLogin();
+    changeIcon = () => {
+      // console.log(this.props.icon)
+      const lala =  this.props.icon === "visibility" ?  "visibility_off" : "visibility";
+      // console.log(lala);
+      this.props.showHideIcon(lala)
+      this.showIcon("password");
+    }
+
+    showIcon = (arg) => {
+    console.log(this.props.icon);
+      if(arg === "password"){
         
+        return this.props.icon;
+      } else {
+        return ""
+      }
     }
-    
-    register = () => {
-        this.props.switchRegister();
-    }
+
+
+    renderTextField = ({
+      label,
+      input,
+      meta: { touched, invalid, error },
+    }) => (
+      
+      <div className="icon-password">
+      <TextField
+      label={label}
+      placeholder={label}
+      error={touched && invalid}
+      helperText={touched && error}
+      {...input}
+      type={label}
+      />
+      <i className="material-icons visibility" onClick={this.changeIcon} >{ this.showIcon(label)}</i>
+        </div>
+    )
     
     render(){
-
+      const {handleSubmit} = this.props
         return(
             <div>
                 <div className="hero">
                     <div className="form-box">
-                         <div className="button-box">
-                             <div id="btn" style={{left: this.props.position_btn ? '110px': '15px'}}></div>
-                             <button type="button" className="toggle-btn" onClick={this.logIn} tabIndex="1">Log  In</button>
-                             <button type="button" className="toggle-btn" onClick={this.register} tabIndex="2" >Register</button>
-                         </div>
-
-                         <form id="login" className="input-group" style={{left: this.props.position_login ? '-400px' : '30px'}}>
-                             <input type="text" className="input-field" placeholder="email" tabIndex={this.props.tabLogInput1} required />
-                             <input type="text" className="input-field" placeholder="password" tabIndex={this.props.tabLogInput2} required/>
-                             <button type='submit' className="submit-btn" tabIndex={this.props.tabLogBtn}>Login in</button>   
+                         <form id="register" className="input-group"  
+                          onSubmit={handleSubmit(this.onSubmit)}   
+                          >
+                             <Field name="email" component={this.renderTextField} label="email"/>
+                             <Field name="password" component={this.renderTextField} label="password"/>
+                             <br/>
+                             <br/>
+                             <div id="button">
+                             <Button type='submit' size='medium' variant='contained' color='primary' >Register</Button>
+                             <Button type='submit' size='medium' variant='contained' color='primary' >Login</Button>
+                             </div>
                          </form>
-
-                         <form id="register" className="input-group" style={{left: this.props.position_register ? '30px' : '450px'}}>
-                             <input type="text" className="input-field" placeholder="email" tabIndex={this.props.tabRegInput1} required/>
-                             <input type="text" className="input-field" placeholder="password" tabIndex={this.props.tabRegInput2} required/>
-                             <button type='submit' className="submit-btn" tabIndex={this.props.tabRegBtn}>Register</button>   
-                         </form>
-                         
                     </div>
                 </div>
             </div>
         )
     }
 }
+  const validate = values => {
+        const errors = {}
+        const requiredFields = [
+          'email',
+          'password'
+        ]
+        requiredFields.forEach(field => {
+          if (!values[field]) {
+            errors[field] = 'Required'
+          }
+        })
+        if (
+          values.email &&
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+        ) {
+          errors.email = 'Invalid email address'
+        }
+        return errors
+      }
 
-const mapStateToProps = (state) => {
-    console.log(state);
+  const mapStateToProps = ({auth}) => {
     return {
-        position_login: state.auth.position_login,
-        position_register: state.auth.position_register,
-        position_btn: state.auth.position_btn,
-        tabLogInput1: state.auth.tabLogInput1,
-        tabLogInput2: state.auth.tabLogInput2,
-        tabLogBtn: state.auth.tabLogBtn,
-        tabRegInput1:  state.auth.tabRegInput1,
-        tabRegInput2: state.auth.tabRegInput2,
-        tabRegBtn: state.auth.tabRegBtn,    
-     }
-}
+      icon: auth.icon
+    }
+  }
 
-export default connect(mapStateToProps,{switchLogin,switchRegister})(LoginRegister);
+  const formWrapped = reduxForm({
+    form: 'MaterialUiForm',
+    validate,
+  })(LoginRegister)
+
+export default connect(mapStateToProps,{logIn,showHideIcon})(formWrapped);
+
+
+

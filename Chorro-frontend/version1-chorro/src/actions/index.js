@@ -1,18 +1,21 @@
 
-import data from '../apis/data';
+import dataFile from '../apis/dataFile';
 import {
-    SWITCH_LOGIN,
-    SWITCH_REGISTER,
+    LOGIN,
+    SHOW_HIDE,
 } from './types';
 
-export const switchLogin = () => {
-    return {
-        type: SWITCH_LOGIN
-    };
-};
+export const logIn = formValues => async (dispatch,getState) => {
 
-export const switchRegister = () => {
-    return{
-        type: SWITCH_REGISTER
-    }
+    const { userId } = getState().auth;
+    const response = await dataFile.post('/dataFile', {...formValues,userId});
+    console.log(response.data);
+    dispatch({type: LOGIN, payload: response.data})
+}
+
+export const showHideIcon = (showOrHide) => {
+    return {
+        type:SHOW_HIDE,
+        payload: showOrHide 
+    };
 }
