@@ -7,6 +7,11 @@ import Button from '@material-ui/core/Button'
 
 import { logIn, showCharacter, hideCharacter} from '../../actions';
 
+// import Srb from '/flag_pictures/Srb.png';
+// import Grb from '../../../public/flag_pictures/Grb.png';
+// import Nld from '../../../public/flag_pictures/Nld.png';
+
+
 class LoginRegister extends React.Component {
   
   // for sending post request       
@@ -15,21 +20,6 @@ class LoginRegister extends React.Component {
         console.log(formValues)    
         this.props.logIn(formValues);
     }
-
-    // changeIcon = () => {
-    //   console.log(this.props.icon)
-    //   const lala =  this.props.icon === "visibility" ?  "visibility_off" : "visibility";
-    //   // console.log(lala);
-    //   this.props.showHideIcon(lala)
-    //   // this.showOrHideIcon("password");
-    // }
-
-    // showOrHideIcon = (label) => {
-    //   if(label === "password") {
-    //     console.log(this.props.icon)
-    //     return this.props.icon
-    //   }
-    // }
     showChar = () => {
       console.log('show char funkcija');
       this.props.showCharacter("text");
@@ -51,10 +41,6 @@ class LoginRegister extends React.Component {
             </div>
             )
       } 
-      // else {
-      //   console.log('if in state is false');
-      //   return <i className="material-icons visibility" onClick={this.showChar}>visibility_off</i>
-      // }
     
     }
     showOrHide = (label)  => {
@@ -87,9 +73,12 @@ class LoginRegister extends React.Component {
     render(){
       const {handleSubmit} = this.props
         return(
-            <div>
+          <div>
                 <div className="hero">
                     <div className="form-box">
+                    <img src="flag_pictures/Grb.png" alt="UK flag" className="flag-pictures"/>
+                    <img src="flag_pictures/Nld.png" alt="UK flag" className="flag-pictures"/>
+                    <img src="flag_pictures/Srb.png" alt="UK flag" className="flag-pictures"/>
                          <form id="register" className="input-group"  
                           onSubmit={handleSubmit(this.onSubmit)}   
                           >
