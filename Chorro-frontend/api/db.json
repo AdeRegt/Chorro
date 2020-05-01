@@ -1,3 +1,9 @@
 {
-    "data":[]
+  "dataFile": [
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "aaaaa",
+      "id": 1
+    }
+  ]
 }

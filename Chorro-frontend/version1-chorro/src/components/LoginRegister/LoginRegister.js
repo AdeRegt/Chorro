@@ -4,13 +4,9 @@ import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
+import { Link } from 'react-router-dom';
 
 import { logIn, showCharacter, hideCharacter} from '../../actions';
-
-// import Srb from '/flag_pictures/Srb.png';
-// import Grb from '../../../public/flag_pictures/Grb.png';
-// import Nld from '../../../public/flag_pictures/Nld.png';
-
 
 class LoginRegister extends React.Component {
   
@@ -64,7 +60,6 @@ class LoginRegister extends React.Component {
       {...input}
       type={this.showOrHide(label)}
       />
-      {/* <i className="material-icons visibility" onClick={this.changeIcon}>visibility</i>  */}
       {this.showOrHideCharacter(label)}
       
         </div>
@@ -77,8 +72,8 @@ class LoginRegister extends React.Component {
                 <div className="hero">
                     <div className="form-box">
                     <img src="flag_pictures/Grb.png" alt="UK flag" className="flag-pictures"/>
-                    <img src="flag_pictures/Nld.png" alt="UK flag" className="flag-pictures"/>
-                    <img src="flag_pictures/Srb.png" alt="UK flag" className="flag-pictures"/>
+                    <img src="flag_pictures/Nld.png" alt="NLD flag" className="flag-pictures"/>
+                    <img src="flag_pictures/Srb.png" alt="SRB flag" className="flag-pictures"/>
                          <form id="register" className="input-group"  
                           onSubmit={handleSubmit(this.onSubmit)}   
                           >
@@ -87,7 +82,7 @@ class LoginRegister extends React.Component {
                              <br/>
                              <br/>
                              <div id="button">
-                             <Button type='submit' size='medium' variant='contained' color='primary' >Register</Button>
+                             <Button size='medium' variant='contained' color='primary' ><Link to={'/addChild'} className="linkButton">Register</Link> </Button>
                              <Button type='submit' size='medium' variant='contained' color='primary' >Login</Button>
                              </div>
                          </form>
