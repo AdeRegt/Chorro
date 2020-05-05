@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+/* @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); */
 *{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
 }
+
 
 .hero {
     /* linear-gradient(rgba(0,0,0,4),rgba(0,0,0,0.4)), */
@@ -120,10 +121,10 @@ i {
     color: #868787;
 }
 
-.flag-pictures{
+.icon-pictures{
     width: 30px;
     height: 30px;
-    margin-right: 10px;
+    margin-right: 5px;
     cursor: pointer;
 }
 

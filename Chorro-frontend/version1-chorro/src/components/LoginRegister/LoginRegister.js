@@ -32,8 +32,8 @@ class LoginRegister extends React.Component {
         console.log('if in state is true');
           return(
             <div>
-              <i className="material-icons visibility" onClick={this.showChar}>visibility</i>
-              <i className="material-icons visibility" onClick={this.hideChar}>visibility_off</i>
+              <img src="/visibility_off.png" className="icon-pictures" onClick={this.hideChar} alt=""/>
+              <img src="/visibility.png" className="icon-pictures" onClick={this.showChar} alt=""/>
             </div>
             )
       } 
@@ -59,10 +59,10 @@ class LoginRegister extends React.Component {
       helperText={touched && error}
       {...input}
       type={this.showOrHide(label)}
+      autoComplete={label === "password" ? "off" : "on"}
       />
       {this.showOrHideCharacter(label)}
-      
-        </div>
+      </div>
     )
     
     render(){
@@ -71,9 +71,9 @@ class LoginRegister extends React.Component {
           <div>
                 <div className="hero">
                     <div className="form-box">
-                    <img src="flag_pictures/Grb.png" alt="UK flag" className="flag-pictures"/>
-                    <img src="flag_pictures/Nld.png" alt="NLD flag" className="flag-pictures"/>
-                    <img src="flag_pictures/Srb.png" alt="SRB flag" className="flag-pictures"/>
+                    <img src="flag_pictures/Grb.png" alt="UK flag" className="icon-pictures"/>
+                    <img src="flag_pictures/Nld.png" alt="NLD flag" className="icon-pictures"/>
+                    <img src="flag_pictures/Srb.png" alt="SRB flag" className="icon-pictures"/>
                          <form id="register" className="input-group"  
                           onSubmit={handleSubmit(this.onSubmit)}   
                           >
@@ -119,7 +119,7 @@ class LoginRegister extends React.Component {
   }
 
   const formWrapped = reduxForm({
-    form: 'MaterialUiForm',
+    form: 'form',
     validate,
   })(LoginRegister)
 

@@ -1,14 +1,24 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+
+import history from '../../history';
+import Modal from './Modal';
 
 class AddChild extends React.Component {
+    
+
+    
+    
     render(){
-        return(
-            <div>
-                AddChild Component
-            </div>
+        return(            
+            <Modal />
         )
     }
 
 }
 
-export default AddChild;
+const mapStateToProps = (state) => {
+    return {}
+}
+
+export default connect(mapStateToProps)(AddChild);
