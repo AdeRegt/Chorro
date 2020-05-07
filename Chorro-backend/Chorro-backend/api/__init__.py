@@ -25,9 +25,11 @@ def create_api(app):
 	#	EXAMPLE:
 	#		from .example import blueprint as example 
 	#			.example is pythonfile in active folder ( ./example.py )
+	from .child import blueprint as child
 	
 	# Adding blueprints to endpoint
 	register_endpoints(app, '/api/v0', [
 		#	EXAMPLE:
 		#		example,
+		child,
 	])
