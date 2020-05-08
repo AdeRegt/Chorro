@@ -13,7 +13,7 @@ export const logIn = formValues => async (dispatch,getState) => {
     const { userId } = getState().auth;
     const response = await dataFile.post('/dataFile', {...formValues,userId});
     console.log(response.data);
-    dispatch({type: LOGIN, payload: response.data})
+    dispatch({type: LOGIN, payload: response.data});
 }
 
 export const showCharacter = (type) => {
@@ -27,7 +27,6 @@ export const hideCharacter = (type) => {
     return {
         type:HIDE_CHAR,
         payload: type,
-
     };
 }
 

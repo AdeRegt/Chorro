@@ -1,7 +1,7 @@
 import React from 'react';
 import './LoginRegister.css'
 import {connect} from 'react-redux';
-import {Field, reduxForm} from 'redux-form';
+import {Field, reduxForm,reset} from 'redux-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
 import { Link } from 'react-router-dom';
@@ -10,18 +10,19 @@ import { logIn, showCharacter, hideCharacter} from '../../actions';
 
 class LoginRegister extends React.Component {
   
-  // for sending post request       
-    onSubmit = (formValues) => {
-        console.log("these are form values: ");
-        console.log(formValues)    
+  onSubmit = (formValues) => {
+    console.log("these are form values: ");
+    console.log(formValues)    
+    // for sending post request       
         this.props.logIn(formValues);
+        this.props.dispatch(reset('form'));
+
     }
+
     showChar = () => {
-      console.log('show char funkcija');
       this.props.showCharacter("text");
     }
     hideChar = () => {
-      console.log('hide char funkcija');
       this.props.hideCharacter("password");
     }
     

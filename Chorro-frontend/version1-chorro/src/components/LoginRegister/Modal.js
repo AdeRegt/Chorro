@@ -4,8 +4,10 @@ import TextField from '@material-ui/core/TextField';
 import {Field, reduxForm,reset} from 'redux-form';
 import {connect} from 'react-redux';
 import Button from '@material-ui/core/Button'
+import { Link } from 'react-router-dom';
 
 import { addChildName, deletChildName } from '../../actions';
+
 class Modal extends React.Component {
     
     // just how the input for writting down the names of children would look like
@@ -41,23 +43,20 @@ class Modal extends React.Component {
     }
     
     showNameButton = () => {   
-        // console.log(this.props.childName)
         if(this.props.childName){
             return(
                 <div>
                     <div>{this.showName(Object.keys(this.props.childName).length)} </div>
                     {/* without state <div>{this.showName(this.props.childName.length)} </div> */}
                     <Button size='large' variant='contained' color='primary'>I don't have any more children, Submit</Button>
+                    <Button size='large' variant='contained' color='secondary'><Link to={'/'} className="linkButton">Cancel</Link></Button>
                 </div>
             )
         }    
     }
-    
     showName = (number, counter = 0) => {
 
         if(number){
-            // console.log(this.props.childName.Child1.nameField);
-            // console.log(Object.keys(this.props.childName)[counter])
             return(
                 <div>
                 Child {counter+1} name :
@@ -80,8 +79,6 @@ class Modal extends React.Component {
     deleteChild = (keyValue) => {
         this.props.deletChildName(keyValue);
     }
-
-
      
      render(){
          const {handleSubmit} = this.props;
