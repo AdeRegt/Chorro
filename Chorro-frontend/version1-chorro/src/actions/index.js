@@ -5,7 +5,7 @@ import {
     SHOW_CHAR,
     HIDE_CHAR,
     ADD_NAME,
-    DEL_ACTION,
+    DEL_NAME,
 } from './types';
 
 export const logIn = formValues => async (dispatch,getState) => {
@@ -31,10 +31,20 @@ export const hideCharacter = (type) => {
     };
 }
 
-export const addChildName = (childName) => {
+export const addChildName = (childName, childID) => {
+    console.log(childName)
     return {
         type:ADD_NAME,
-        payload: childName
+        payload: childName,
+        id: childID,
     }
 }
+
+export const deletChildName = ( childID) => {
+    return {
+        type:DEL_NAME,
+        payload: childID,
+    }
+}
+
 
