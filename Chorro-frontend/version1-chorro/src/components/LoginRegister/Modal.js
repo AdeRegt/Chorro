@@ -18,7 +18,6 @@ class Modal extends React.Component {
             label={label}
             variant="outlined"
             {...input}
-            autoComplete="off"
             />
             )
         }
@@ -30,26 +29,34 @@ class Modal extends React.Component {
         childNamesArray = [];
       
     onSubmit = (formValues) => {
+        console.log(formValues)
         // without state
-        this.childNamesArray.push(this.refs.refField.value);        
+        // this.childNamesArray.push(this.refs.refField.value);        
 
         this.keyValue += this.idCounter; 
         this.props.addChildName(formValues,this.keyValue)
+       
         // to empty the input field,also you need to import reset from redux-form
         this.props.dispatch(reset('form'));
         
         this.idCounter++;
         this.keyValue = "Child"
     }
+    deleteChild = (keyValue) => {
+        this.props.deletChildName(keyValue);
+    }
     
     showNameButton = () => {   
-        if(this.props.childName){
+        console.log(this.props.childName)
+        if(this.props.childName.Child1){
             return(
                 <div>
                     <div>{this.showName(Object.keys(this.props.childName).length)} </div>
                     {/* without state <div>{this.showName(this.props.childName.length)} </div> */}
-                    <Button size='large' variant='contained' color='primary'>I don't have any more children, Submit</Button>
-                    <Button size='large' variant='contained' color='secondary'><Link to={'/'} className="linkButton">Cancel</Link></Button>
+                    <Button size='large' variant='contained' color='primary'>No more children, Finish</Button>
+                    <Button size='large' variant='contained' color='secondary'>
+                    <Link to={'/'} className="linkButton">Cancel</Link>
+                    </Button>
                 </div>
             )
         }    
@@ -62,7 +69,8 @@ class Modal extends React.Component {
                 Child {counter+1} name :
                 {/* without state {this.childNamesArray[counter]} */}
                 {/* take from state by index(counter) */}
-                {this.props.childName[Object.keys(this.props.childName)[counter]].nameField}
+                {/* .name is just the name of the <Field> */}
+                {this.props.childName[Object.keys(this.props.childName)[counter]].name}
                 
                 <Button size='medium' variant='contained'
                  color='secondary' 
@@ -76,24 +84,32 @@ class Modal extends React.Component {
         }
     }
 
-    deleteChild = (keyValue) => {
-        this.props.deletChildName(keyValue);
-    }
-     
      render(){
          const {handleSubmit} = this.props;
+         console.log(this.onSubmit);
         return ReactDom.createPortal(
-            
             <div className="ui dimmer modals visible active">
-                <div className="ui standard modal visible active">
+                <div className="ui standard modal visible active" >
                     <div className="header">Add Name(s) of your child(ren)</div>
                    
-                    <form onSubmit={handleSubmit(this.onSubmit)}>
-                    <span>Enter the name of your child  and press enter:</span>
-                    <Field name="nameField" component={this.renderTextField}
-                     label="Childs Name" ref='refField'
-        
+                    <form onSubmit={handleSubmit(this.onSubmit)} style={{padding:"10px"}} >
+
+                    <span style={{  fontSize:"30px"}} >Enter the name of your child: </span>
+                    <Field name="name" component={this.renderTextField}
+                     label="name" type="text"
                      />
+                     <br/>
+                     <span style={{  fontSize:"30px"}} >Enter the email of your child  and press enter: </span>
+                    <Field name="email" component={this.renderTextField}
+                     label="email" type="email"
+                     />
+                     <br/>
+                     <div style={{textAlign:"center"}}>
+                    <Button type='submit' size='medium' variant='contained' color='primary'> Next </Button>
+                    <Button variant='contained' color='secondary' onClick={ () => this.props.dispatch(reset('form'))}>
+                    Cancel
+                    </Button>
+                     </div>
                      {this.showNameButton()}
                      
                     </form>
@@ -106,6 +122,9 @@ class Modal extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    // console.log('inside Modal mapStateToProps')
+    // console.log(state)
+
     return {childName: state.listOfNames}
 }
 

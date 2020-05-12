@@ -4,19 +4,32 @@ import {connect} from 'react-redux';
 import {Field, reduxForm,reset} from 'redux-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
-import { Link } from 'react-router-dom';
 
 import { logIn, showCharacter, hideCharacter} from '../../actions';
 
 class LoginRegister extends React.Component {
   
+  // boolean value with which it will be decided in logIn action creator 
+  // where to send user, to model (register) or table (login)
+  registerOrLogin;
+
   onSubmit = (formValues) => {
+    console.log(this.registerOrLogin);
     console.log("these are form values: ");
     console.log(formValues)    
     // for sending post request       
-        this.props.logIn(formValues);
+        this.props.logIn(formValues,this.registerOrLogin);
         this.props.dispatch(reset('form'));
 
+    }
+
+  // for register true
+    chooseRegister = () => {
+      this.registerOrLogin = true;
+    }
+  // for login false
+    chooseLogin = () => {
+      this.registerOrLogin = false;
     }
 
     showChar = () => {
@@ -29,8 +42,7 @@ class LoginRegister extends React.Component {
     showOrHideCharacter = (label) => {
       if(label !== "password"){
         return null
-      } else   {
-        console.log('if in state is true');
+      } else {
           return(
             <div>
               <img src="/visibility_off.png" className="icon-pictures" onClick={this.hideChar} alt=""/>
@@ -83,8 +95,11 @@ class LoginRegister extends React.Component {
                              <br/>
                              <br/>
                              <div id="button">
-                             <Button size='medium' variant='contained' color='primary' ><Link to={'/addChild'} className="linkButton">Register</Link> </Button>
-                             <Button type='submit' size='medium' variant='contained' color='primary' >Login</Button>
+                             <Button type='submit' size='medium' variant='contained' color='primary' onClick={this.chooseRegister} >
+                               {/* <Link to={'/addChild'} className="linkButton">Register</Link> */} Register
+                                </Button>
+                             <Button type='submit' size='medium' variant='contained' color='primary' onClick={this.chooseLogin} >Login</Button>
+
                              </div>
                          </form>
                     </div>

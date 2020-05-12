@@ -1,4 +1,4 @@
-
+import history from '../history';
 import dataFile from '../apis/dataFile';
 import {
     LOGIN,
@@ -8,12 +8,20 @@ import {
     DEL_NAME,
 } from './types';
 
-export const logIn = formValues => async (dispatch,getState) => {
+export const logIn = (formValues,registerOrLogin) => async (dispatch,getState) => {
 
     const { userId } = getState().auth;
     const response = await dataFile.post('/dataFile', {...formValues,userId});
     console.log(response.data);
     dispatch({type: LOGIN, payload: response.data});
+ 
+    // registerOrLogin ? history.push('/addChild') : history.push('/');
+
+    if(registerOrLogin){
+        history.push('/addChild')
+    } else {
+        history.push('/')
+    }
 }
 
 export const showCharacter = (type) => {
