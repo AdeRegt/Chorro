@@ -4,6 +4,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import LoginRegister from './LoginRegister/LoginRegister';
 import AddChild from './LoginRegister/AddChild';
 import history from '../history';
+import Spinner from './Spinner';
 
 const App = () => {
     return(
@@ -14,6 +15,8 @@ const App = () => {
                     <Switch>
                         <Route path="/" exact component={LoginRegister} />
                         <Route path="/addChild" exact component={AddChild} /> 
+                        <Route path="/spinner" exact component={Spinner} /> 
+
                     </Switch>    
                 </div> 
 

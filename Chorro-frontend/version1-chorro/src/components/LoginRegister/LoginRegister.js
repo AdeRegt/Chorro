@@ -5,20 +5,17 @@ import {Field, reduxForm,reset} from 'redux-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
 
-import { logIn, showCharacter, hideCharacter} from '../../actions';
+import { loginRegister, showCharacter, hideCharacter} from '../../actions';
 
 class LoginRegister extends React.Component {
   
-  // boolean value with which it will be decided in logIn action creator 
+  // boolean value with which it will be decided in loginRegister action creator 
   // where to send user, to model (register) or table (login)
   registerOrLogin;
 
   onSubmit = (formValues) => {
-    console.log(this.registerOrLogin);
-    console.log("these are form values: ");
-    console.log(formValues)    
     // for sending post request       
-        this.props.logIn(formValues,this.registerOrLogin);
+        this.props.loginRegister(formValues,this.registerOrLogin);
         this.props.dispatch(reset('form'));
 
     }
@@ -95,11 +92,8 @@ class LoginRegister extends React.Component {
                              <br/>
                              <br/>
                              <div id="button">
-                             <Button type='submit' size='medium' variant='contained' color='primary' onClick={this.chooseRegister} >
-                               {/* <Link to={'/addChild'} className="linkButton">Register</Link> */} Register
-                                </Button>
-                             <Button type='submit' size='medium' variant='contained' color='primary' onClick={this.chooseLogin} >Login</Button>
-
+                  <Button type='submit' size='medium' variant='contained' color='primary' onClick={this.chooseLogin} >Login</Button>
+                  <Button type='submit' size='medium' variant='contained' color='primary' onClick={this.chooseRegister} >Register</Button>
                              </div>
                          </form>
                     </div>
@@ -108,11 +102,13 @@ class LoginRegister extends React.Component {
         )
     }
 }
-  const validate = values => {
+  export const validate = values => {
         const errors = {}
         const requiredFields = [
           'email',
-          'password'
+          'password',
+          // name is used in modeal dialog, validate is being exported there
+          'name'
         ]
         requiredFields.forEach(field => {
           if (!values[field]) {
@@ -139,7 +135,7 @@ class LoginRegister extends React.Component {
     validate,
   })(LoginRegister)
 
-export default connect(mapStateToProps,{logIn,showCharacter, hideCharacter})(formWrapped);
+export default connect(mapStateToProps,{loginRegister,showCharacter, hideCharacter})(formWrapped);
 
 
 

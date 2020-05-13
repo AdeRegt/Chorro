@@ -1,27 +1,35 @@
 import history from '../history';
 import dataFile from '../apis/dataFile';
 import {
-    LOGIN,
+    LOGIN_REGISTER,
     SHOW_CHAR,
     HIDE_CHAR,
     ADD_NAME,
     DEL_NAME,
+    DEL_ALL,
 } from './types';
 
-export const logIn = (formValues,registerOrLogin) => async (dispatch,getState) => {
+export const loginRegister = (formValues,registerOrLogin) => async (dispatch,getState) => {
 
-    const { userId } = getState().auth;
-    const response = await dataFile.post('/dataFile', {...formValues,userId});
-    console.log(response.data);
-    dispatch({type: LOGIN, payload: response.data});
- 
-    // registerOrLogin ? history.push('/addChild') : history.push('/');
+    history.push('/spinner')
+
+    let endpoint = '/login';
+    let route = '/';
 
     if(registerOrLogin){
-        history.push('/addChild')
-    } else {
-        history.push('/')
+        endpoint = '/register'
+        route = '/addChild'   
     }
+        const response = await dataFile.post(endpoint, {...formValues});
+        dispatch({type: LOGIN_REGISTER, payload: response.data});
+     
+        if(endpoint === '/register' ){
+            endpoint = '/login'
+            const response = await dataFile.post(endpoint,{...formValues});
+            dispatch({type: LOGIN_REGISTER, payload: response.data});
+        }
+        history.push(route)
+
 }
 
 export const showCharacter = (type) => {
@@ -39,7 +47,6 @@ export const hideCharacter = (type) => {
 }
 
 export const addChildName = (childName, childID) => {
-    console.log(childName)
     return {
         type:ADD_NAME,
         payload: childName,
@@ -51,6 +58,15 @@ export const deletChildName = ( childID) => {
     return {
         type:DEL_NAME,
         payload: childID,
+    }
+}
+
+export const deleteAll = (keyValues) => {
+    history.push('/')
+    
+    return{
+        type: DEL_ALL,
+        payload: keyValues
     }
 }
 

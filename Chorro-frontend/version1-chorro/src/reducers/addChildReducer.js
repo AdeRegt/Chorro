@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {ADD_NAME,DEL_NAME} from '../actions/types';
+import {ADD_NAME,DEL_NAME,DEL_ALL} from '../actions/types';
 
 export default (state = {},action) => {
 
@@ -9,6 +9,9 @@ export default (state = {},action) => {
 
         case DEL_NAME:
         return _.omit(state, action.payload);
+
+        case DEL_ALL:
+        return _.omit(state, action.payload );
 
         default: return state
 

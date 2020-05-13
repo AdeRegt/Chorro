@@ -1,73 +1,145 @@
 {
-  "dataFile": [
+  "register": [
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "aaaaa",
+      "password": "aaaa",
       "id": 1
     },
     {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "ggggggg",
+      "email": "udemy@thinksmart.rs",
+      "password": "kkkkk",
       "id": 2
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "aaaaaaaaaaaa",
+      "password": "ffffff",
       "id": 3
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "javolimlalala",
+      "password": "dddddd",
       "id": 4
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "aaaaaaaaa",
+      "password": "fffffff",
       "id": 5
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "sdfdfssdfds",
+      "password": "aaaaaaa",
       "id": 6
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "dddddddddd",
+      "password": "aaaaaaaa",
       "id": 7
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "dddddddddd",
+      "password": "jjjjjjj",
       "id": 8
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "dsfdsfsffdsfs",
+      "password": "aaaaaaa",
       "id": 9
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "aaaaaaaaa",
+      "password": "aaaaaaaa",
       "id": 10
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "adfsfsaf",
+      "password": "kkkkkkk",
       "id": 11
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "aaaaaaaaaa",
+      "password": "vvvvvv",
       "id": 12
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "aaa",
+      "password": "aaaaaa",
       "id": 13
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "aaaaaa",
+      "password": "dsfsdfdsfsdfsd",
+      "id": 14
+    }
+  ],
+  "login": [
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "aaaa",
+      "id": 1
+    },
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "fffffff",
+      "id": 2
+    },
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "uuuuuuuu",
+      "id": 3
+    },
+    {
+      "email": "udemy@thinksmart.rs",
+      "password": "kkkkk",
+      "id": 4
+    },
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "ffffff",
+      "id": 5
+    },
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "dddddd",
+      "id": 6
+    },
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "fffffff",
+      "id": 7
+    },
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "aaaaaaa",
+      "id": 8
+    },
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "aaaaaaaa",
+      "id": 9
+    },
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "jjjjjjj",
+      "id": 10
+    },
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "aaaaaaa",
+      "id": 11
+    },
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "aaaaaaaa",
+      "id": 12
+    },
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "kkkkkkk",
+      "id": 13
+    },
+    {
+      "email": "vukasinvujic021@gmail.com",
+      "password": "vvvvvv",
       "id": 14
     },
     {
@@ -77,93 +149,8 @@
     },
     {
       "email": "vukasinvujic021@gmail.com",
-      "password": "aaaaa",
+      "password": "dsfsdfdsfsdfsd",
       "id": 16
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "sdfdsfdss",
-      "id": 17
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "dssdfddsfdsf",
-      "id": 18
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "yyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
-      "id": 19
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "qqqqqqqq",
-      "id": 20
-    },
-    {
-      "email": "udemy@thinksmart.rs",
-      "password": "aaaaaa",
-      "id": 21
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "dsfsddfs",
-      "id": 22
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "dsfdsfsd",
-      "id": 23
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "zvoncic",
-      "id": 24
-    },
-    {
-      "email": "vuke@gmail.com",
-      "password": "aaaaaaa",
-      "id": 25
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "ffffff",
-      "id": 26
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "sfdsfdsfsdf",
-      "id": 27
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "aaaaaaaa",
-      "id": 28
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "aaaaaa",
-      "id": 29
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "aaaaaaa",
-      "id": 30
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "aaaaaaaa",
-      "id": 31
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "fffffff",
-      "id": 32
-    },
-    {
-      "email": "vukasinvujic021@gmail.com",
-      "password": "jjjjj",
-      "id": 33
     }
   ]
 }
