@@ -3,6 +3,8 @@ import { Router, Route, Switch } from 'react-router-dom';
 
 import LoginRegister from './LoginRegister/LoginRegister';
 import AddChild from './LoginRegister/AddChild';
+import ParentTable from './ParentTable';
+
 import history from '../history';
 import Spinner from './Spinner';
 
@@ -16,6 +18,7 @@ const App = () => {
                         <Route path="/" exact component={LoginRegister} />
                         <Route path="/addChild" exact component={AddChild} /> 
                         <Route path="/spinner" exact component={Spinner} /> 
+                        <Route path="/parentTable" exact component={ParentTable} />
 
                     </Switch>    
                 </div> 
