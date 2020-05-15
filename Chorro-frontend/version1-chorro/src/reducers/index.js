@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import authReducer from './authReducer';
 import { reducer as formReducer} from 'redux-form';
+
+import authReducer from './authReducer';
 import addChildReducer from './addChildReducer'
 import loginRegisterReducer from './loginRegisterReducer';
+import dataTableReducer from './dataTableReducer';
 
 export default combineReducers({
     // papa: () => "paranoja"
@@ -10,5 +12,6 @@ export default combineReducers({
     auth:authReducer,
     form: formReducer,
     loginRegister: loginRegisterReducer,
-    listOfNames: addChildReducer
+    listOfNames: addChildReducer,
+    parentTable: dataTableReducer,
 })

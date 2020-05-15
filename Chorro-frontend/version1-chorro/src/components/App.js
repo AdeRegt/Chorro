@@ -3,7 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 
 import LoginRegister from './LoginRegister/LoginRegister';
 import AddChild from './LoginRegister/AddChild';
-import ParentTable from './ParentTable';
+import ParentTable from './parentTableFolder/ParentTable';
 
 import history from '../history';
 import Spinner from './Spinner';

@@ -8,10 +8,12 @@ import {
     DEL_NAME,
     DEL_ALL,
     SEND_CHILD_INFO,
+    NEW_ROW,
+    UPDATE_ROW,
+    DEL_ROW,
 } from './types';
 
 export const loginRegister = (formValues,registerOrLogin) => async (dispatch,getState) => {
-
     history.push('/spinner')
     let endpoint = '/login';
     let route = '/';
@@ -63,7 +65,6 @@ export const deletChildName = ( childID) => {
 
 export const deleteAll = (keyValues) => {
     history.push('/')
-    
     return{
         type: DEL_ALL,
         payload: keyValues
@@ -73,14 +74,29 @@ export const deleteAll = (keyValues) => {
 export const sendChildInfo = (childInfo) => async(dispatch) => {
 
     history.push('/spinner')
-
     const response = await dataFile.post('/childInfo', {...childInfo});
-    
     dispatch({type:SEND_CHILD_INFO, payload: response.data})
-
     history.push('/parentTable');
-        
-        
 }
 
 
+export const addNewRow = (newData) =>{
+    return{
+        type: NEW_ROW,
+        payload: newData,
+    }
+}
+
+export const updateRow = (newData) =>{
+    return{
+        type: UPDATE_ROW,
+        payload: newData,
+    }
+}
+
+export const deleteRow = (rowForDelete) => {
+    return {
+        type: DEL_ROW,
+        payload:rowForDelete,         
+    }
+}
