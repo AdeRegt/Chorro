@@ -27,4 +27,4 @@ cd ../..
 
 #
 # Finished
-echo "Alle treads worden nu gebruikt!"
+echo "All threads are up and running"
