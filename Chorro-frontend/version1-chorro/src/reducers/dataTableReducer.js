@@ -1,25 +1,33 @@
 import {NEW_ROW,UPDATE_ROW,DEL_ROW} from '../actions/types';
 
+
 const INIT_STATE = {
     columns: [
-        { title: 'Name', field: 'name' },
-        { title: 'Surname', field: 'surname' },
-        { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
+        { title: 'Child Name', field: 'name' },
+        { title: 'Chore', field: 'chore' },
+        { title: 'Date', field: 'date' },
+        
+        { title: 'Points for finished chore', field: 'chorePoints', type:'numeric',
+         cellStyle: {
+          paddingRight: "12%",
+        },
+      },
+        
         {
           title: 'Birth Place',
           field: 'birthCity',
-          lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
+          lookup: { 38: 'İstanbul', 63: 'Şanlıurfa' },
         },
       ],
       data: [
-        { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-        {
-          name: 'Zerya Betül',
-          surname: 'Baran',
-          birthYear: 2017,
-          birthCity: 34,
-        },
+        { name: 'Sander', chore: 'Walk the dog', date:'12.02.2008',
+         birthCity: 63,chorePoints: 15, },
+        { name: 'Pedja', chore: 'clean dish', date:'12.02.2008',
+         birthCity: 38,chorePoints: 15, },
+        { name: 'Vukasin', chore: 'be cool', date:'12.02.2008',
+         birthCity: 63,chorePoints: 15,  },
       ],
+     
 }
 
 export default (state = INIT_STATE, action) => {

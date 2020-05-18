@@ -1,6 +1,46 @@
 import React from 'react';
-import MaterialTable from 'material-table';
 import {connect} from 'react-redux';
+
+
+// class ParentTable extends React.Component {
+//     render(){
+//         return (
+//             <div>
+//                 lalalalaal
+//             </div>
+//         )
+//     }
+
+// }
+// const mapStateToProps = (state) => {
+//     return {}
+// }
+
+// export default connect(mapStateToProps)(ParentTable);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import MaterialTable from 'material-table';
 
 import {addNewRow,updateRow,deleteRow} from '../../actions'
 
@@ -25,6 +65,19 @@ class ParentTable extends React.Component {
             title="Crayz table"
             columns={parentTable.columns}
             data = {parentTable.data}
+            options = {{
+                rowStyle:{
+                    backgroundColor: 'lightBlue'
+                },
+                headerStyle: {
+                    backgroundColor: 'red',
+                    whiteSpace: "nowrap",
+                    width: "5px",
+
+                },
+            }
+            
+        }
             editable={{
                     onRowAdd: (newData) => 
                         new Promise ((resolve) => {

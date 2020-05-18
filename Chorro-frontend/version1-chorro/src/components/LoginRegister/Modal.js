@@ -59,7 +59,7 @@ class Modal extends React.Component {
         }
     
     showNameButton = () => {   
-        if(this.props.childName.Child1){
+        if(Object.keys(this.props.childName).length){
             return(
                 <div>
                     <div style={{marginTop:"20px", marginBottom:"20px"}}>{this.showName(Object.keys(this.props.childName).length-1)} </div>
@@ -74,9 +74,10 @@ class Modal extends React.Component {
     showName = (number, counter = 0) => {
         let keyValues = Object.keys(this.props.childName);
 
+        console.log(`number is ${number}`);
             // to avoid showing id as child name
-        if(number >= 0 && this.props.childName[keyValues[counter]].name){
-            return(
+            if(number >= 0  && this.props.childName[keyValues[counter]].name ){
+                return(
                 <div style={{marginTop:"5px"}}>
                 Child {counter+1} name :
                 {/* take from state by index(counter) */}
@@ -92,6 +93,7 @@ class Modal extends React.Component {
             )
         }
     }
+    // && this.props.childName[keyValues[counter]].name
 
      render(){
          const {handleSubmit} = this.props;
@@ -101,18 +103,18 @@ class Modal extends React.Component {
                     <div className="header">Add Name(s) of your child(ren)</div>
                         <form onSubmit={handleSubmit(this.onSubmit)} style={{padding:"10px"}} >
              
-                            <span style={{  fontSize:"30px"}} >Enter the name of your child: </span>
+                            <span style={{  fontSize:"30px"}} > Name of your child: </span>
                             <Field name="name" component={this.renderTextField}label="name" type="text" />
                             <br/>
 
-                            <span style={{  fontSize:"30px"}} >Enter the email of your child: </span>
+                            <span style={{  fontSize:"30px"}} > Email of your child: </span>
                             <Field name="email" component={this.renderTextField} label="email" type="email" />
                             <br/>
 
                             <div style={{textAlign:"center" , marginTop:"10px"}}>
                                 <Button type='submit' size='medium' variant='contained' color='primary'> Next </Button>
                                 <Button variant='contained' color='secondary' onClick={this.resetForm}>
-                                Cancel
+                                Clear
                                 </Button>
                             </div>
                             {this.showNameButton()}
