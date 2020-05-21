@@ -81,6 +81,7 @@ export const sendChildInfo = (childInfo) => async(dispatch) => {
 
 
 export const addNewRow = (newData) =>{
+    
     return{
         type: NEW_ROW,
         payload: newData,
@@ -95,6 +96,7 @@ export const updateRow = (newData) =>{
 }
 
 export const deleteRow = (rowForDelete) => {
+    
     return {
         type: DEL_ROW,
         payload:rowForDelete,         

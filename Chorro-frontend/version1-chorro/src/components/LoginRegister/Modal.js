@@ -74,7 +74,6 @@ class Modal extends React.Component {
     showName = (number, counter = 0) => {
         let keyValues = Object.keys(this.props.childName);
 
-        console.log(`number is ${number}`);
             // to avoid showing id as child name
             if(number >= 0  && this.props.childName[keyValues[counter]].name ){
                 return(
