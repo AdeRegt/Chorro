@@ -102,3 +102,7 @@ export const deleteRow = (rowForDelete) => {
         payload:rowForDelete,         
     }
 }
+
+
+
+

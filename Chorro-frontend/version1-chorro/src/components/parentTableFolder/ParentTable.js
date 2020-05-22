@@ -25,8 +25,6 @@ class ParentTable extends React.Component {
      
     componentDidUpdate(prevProps, prevState) {
 
-        this.promptFunction();
-        // history.push('parentTable/multipleChore')
     
       }
 
