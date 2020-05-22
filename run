@@ -1,0 +1,30 @@
+#!/bin/sh
+
+#
+# Are we up to date?
+git pull
+
+#
+# No need to do other checks, checks are done in first build.
+
+#
+# Run everything!
+
+# First run backend
+cd Chorro-backend
+if command -v gnome-terminal; then
+  gnome-terminal --tab -e "bash bin/devel.sh"
+elif command -v sakura; then
+ sakura -e "bin/devel.sh" &
+else
+  bin/devel.sh &
+fi
+cd ..
+
+cd Chorro-frontend/version1-chorro
+npm start
+cd ../..
+
+#
+# Finished
+echo "Alle treads worden nu gebruikt!"
