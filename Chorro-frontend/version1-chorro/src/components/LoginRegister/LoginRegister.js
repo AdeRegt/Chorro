@@ -17,6 +17,7 @@ class LoginRegister extends React.Component {
     // for sending post request       
         this.props.loginRegister(formValues,this.registerOrLogin);
         this.props.dispatch(reset('form'));
+        this.props.hideCharacter("password");
     }
 
   // for register true

@@ -80,7 +80,7 @@ class ParentTable extends React.Component {
                 }),
             }}
              />
-             <Button variant="contained" color="secondary" onClick={ () => this.someFunction()}> aaaa </Button>
+             <Button variant="contained" color="secondary" onClick={ () => this.someFunction()}> Add more chores at once </Button>
             </div>
         )
     }

@@ -99,7 +99,7 @@ class Modal extends React.Component {
         return ReactDom.createPortal(
             <div className="ui dimmer modals visible active">
                 <div className="ui standard modal visible active" >
-                    <div className="header">Add Name(s) of your child(ren)</div>
+                    <div className="header">Add name(s) of your child(ren)</div>
                         <form onSubmit={handleSubmit(this.onSubmit)} style={{padding:"10px"}} >
              
                             <span style={{  fontSize:"30px"}} > Name of your child: </span>
@@ -112,9 +112,9 @@ class Modal extends React.Component {
 
                             <div style={{textAlign:"center" , marginTop:"10px"}}>
                                 <Button type='submit' size='medium' variant='contained' color='primary'> Next </Button>
-                                <Button variant='contained' color='secondary' onClick={this.resetForm}>
-                                Clear
-                                </Button>
+                                <Button variant='contained' onClick={this.resetForm}>Clear</Button>
+                                <Button variant='contained' color='secondary' onClick={this.deleteAll}>Cancel</Button>
+
                             </div>
                             {this.showNameButton()}
                         </form>
