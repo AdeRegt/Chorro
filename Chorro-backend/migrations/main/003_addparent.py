@@ -1,4 +1,4 @@
-"""Peewee migrations -- 002_addParent.py.
+"""Peewee migrations -- 003_addparent.py.
 
 Some examples (model - class or model name)::
 
@@ -39,7 +39,7 @@ def migrate(migrator, database, fake=False, **kwargs):
     migrator.add_fields(
         'users',
 
-        parent=pw.IntegerField(null=True))
+        parent=pw.ForeignKeyField(backref='users', column_name='parent', field='id', model=migrator.orm['users'], null=True))
 
     migrator.change_fields('users', active=pw.BooleanField(constraints=[SQL("DEFAULT False")]),
         admin=pw.BooleanField(constraints=[SQL("DEFAULT False")]))
@@ -47,4 +47,8 @@ def migrate(migrator, database, fake=False, **kwargs):
 
 def rollback(migrator, database, fake=False, **kwargs):
     """Write your rollback migrations here."""
-False
+
+    migrator.add_fields(
+        'users',
+
+        name=pw.TextField(null=True))
